@@ -1,0 +1,180 @@
+body{
+    background: rgba(255,249,249,0.84);
+    font-family: serif;
+}
+
+
+.hero-header {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    padding: clamp(1rem, 4vw, 3rem);
+    display: flex;
+    align-items: center;
+    color: rgba(255,249,249,0.84);
+}
+
+/* Baggrunds-billede */
+.hero-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('./headerbillede.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+/* Indhold ovenpå billedet: logo venstre, titel i midten */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr auto;  /* venstre | midte | højre */
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo til venstre */
+.hero-logo {
+    height: clamp(50px, 10vw, 120px); /* min, foretrukken, max */
+    width: auto;
+    justify-self: start;
+}
+
+/* Titel midt i gridden */
+.hero-title {
+    margin-left: clamp(10px, 5vw, 80px);
+    font-size: clamp(0.2rem, 5vw, 5rem); /* min 0.2rem, vokser med viewport, max 5rem */
+    font-weight: 700;
+    color: #3a3939;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+
+/* Navigation */
+.custom-navbar {
+    background-color: #963635;
+    min-height: 80px;
+}
+
+.custom-navbar .navbar-nav {
+    flex-wrap: nowrap;     /* Forhindrer linjeskift */
+    overflow-x: auto;      /* Tillader scroll horisontalt hvis der bliver for mange */
+    white-space: nowrap;
+}
+
+.custom-navbar .nav-link {
+    color: rgba(255,249,249,0.84);
+    font-weight: 500;
+    font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+    padding-left: clamp(0.01rem, 1.5vw, 1.5rem) !important;
+    padding-right: clamp(0.5rem, 1.5vw, 1.5rem) !important;
+}
+
+.custom-navbar .nav-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+/* burger menu */
+.navbar-toggler{
+    margin-right: 20px;
+}
+
+
+/* Stort billede øverst */
+.billede1{
+    height: auto;
+    width: 100%;
+}
+
+/* footer */
+.footer-section {
+    background-color: #963635;
+    color: rgba(255, 249, 249, 0.84);
+
+    /* Responsiv højde/padding – som i headeren */
+    min-height: clamp(120px, 20vw, 220px);
+    padding-block: clamp(2rem, 4vw, 5rem);
+
+    /* Let skygge for dybde (matcher header/nav-stilen) */
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+
+    /* Indtoning ved visning */
+    animation: fadeUp 600ms ease-out both;
+}
+
+/* Responsiv titel, ingen linjeskift */
+.footer-title {
+    font-size: clamp(1.2rem, 2.6vw, 2rem);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    margin: 0 0 clamp(0.75rem, 2vw, 1rem) 0;
+}
+
+/* Brødtekst i footeren */
+.footer-section p {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    margin-bottom: 0.35rem;
+}
+
+/* Links */
+.footer-link {
+    color: rgba(128, 185, 219, 0.84);
+    text-decoration: underline;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    white-space: nowrap; /* e-mail på én linje */
+    transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+.footer-link:hover {
+    text-decoration: none;
+    color: #f1d6d6;
+}
+
+/* Logo responsivt */
+.footer-logo {
+    height: auto;
+    width: clamp(90px, 12vw, 180px);
+    margin-right: clamp(8px, 2vw, 24px);
+}
+
+/* Holder kolonner på én linje på brede skærme – og scroll hvis nødvendigt */
+.footer-section .row {
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+/* Mobil: lægger dem under hinanden og centrér */
+@media (max-width: 768px) {
+    .footer-section .row {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .footer-logo {
+        margin-top: 1rem;
+    }
+}
+
+/* Indtoningsanimation */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Respektér brugere der foretrækker mindre bevægelse */
+@media (prefers-reduced-motion: reduce) {
+    .footer-section { animation: none; }
+}
