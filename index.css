@@ -19,7 +19,7 @@ body{
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('./headerbillede.jpg');
+    background-image: url('images/headerbillede.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -182,4 +182,38 @@ body{
 }
 
 
+
+.merriweatherfont {
+                   font-family: "Merriweather", serif;
+                   font-optical-sizing: auto;
+                   font-weight: <weight>;
+                   font-style: normal;
+                   font-variation-settings:
+                           "wdth" 100;
+               }
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+
+}
+
+.årFoto{
+    text-align: center;
+    font-size: 40px;
+}
+
+.titelFoto{
+    text-align: center;
+    font-size: 70px;
+}
+
+.FarveBoxFoto{
+    background-color: #F7EDC1 ;
+}
+
+.FarveBoxFotoText{
+    font-size: 30px;
+}
 /* */
